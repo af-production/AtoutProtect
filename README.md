@@ -1,11 +1,12 @@
-# Projet Atout-sa
+# Projet AtoutProtect
 
-Le projet Atout-SA a pour but de livrer initialement une dll permettant la gestion de licence logiciel. Ce livrable comprendra un jeu d'essais, à savoir :
+Le projet AtoutProtect est une demande de la société Atout SA. Le besoin de ce projet est de livrer une dll permettant la gestion de licence logiciel. Nous intégrons un jeu d'essais aux livrables afin de vérifier le bon fonctionnement des intérractions. Ce jeu d'essais est composé de:
 
 <ul>
   <li> Un executable, ayant besoin d'une licence active pour accéder à toutes ces fonctionnalités </li>
   <li> Un site internet permettant de consulter les licences disponnibles, et de les acheter en passant par paypal ou Hipay </li>
-  <li> Une  dll qui permettra de vérifier si la licence est activée ou non </li>
+  <li> Une base de données afin de recenser les clients dont la licence est activée </li>
+  <li> Une dll qui permettra de vérifier si la licence est activée ou non </li>
 </ul>
 
 <h1> Installation </h1>

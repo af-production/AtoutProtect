@@ -1,6 +1,7 @@
 <?php
 
 namespace AtoutProtect\Model;
+use \PDO;
 
 require_once("model/Manager.php");
 

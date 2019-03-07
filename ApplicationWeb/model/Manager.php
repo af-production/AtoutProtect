@@ -2,6 +2,7 @@
 
 namespace AtoutProtect\Model;
 
+
 class Manager
 {
     protected function dbConnect()

@@ -11,17 +11,16 @@ ob_start();
     <div class="container">
     <!--<div class="row gtr-150"> !-->
         <div class="col-6 col-12-medium"> 
-            <p style="color: #FFF;">
-                Votre licence est expirée, veuillez trouver ci-joint un tableau explicatif des différentes solutions que nous pouvons vous proposer. Si vous ne choisissez aucune icence, les fonctionnalités Export et Impression seront désactivées.
+            <p class="fondGris">
+                Veuillez vous connecter afin d'effectuer votre achat.
             </p>
         </div>
       
-
-		
-		<form action="connexion.php" method="post" name="formulaire">  
-			<p> Veuillez remplir le formulaire</p>
-			<p> Adresse mail <br /><input type="text" name="MailUser" placeholder="utilisateur" required/></p>
-			<p> Mot de passe <br /><input type="password" name="MdpUser" value="" placeholder="MotPa$$e" required/></p>
+		<form action="#" method="post" name="formulaire">  
+			<p class="fondGris"> 
+				Adresse mail <br /><input class="champFormulaire" type="text" name="MailUser" placeholder="exemple@mail.com" required/>
+				Mot de passe <br /><input class="champFormulaire" type="password" name="MdpUser" value="" placeholder="MotPa$$e" required/>
+			</p>
 			<input type="submit" name="submit" value="Se connecter"></br></br>
 		</form>
 
@@ -31,26 +30,7 @@ ob_start();
 				echo"<b><font color='orange'> Vous venez bien de vous inscrire, veuillez vous connecter.</font></b></br>";
 			}  */       
 
-			$MailUser = isset($_POST['MailUser']) ? $_POST['MailUser'] : '';
-			$MdpUser = isset($_POST['MdpUser']) ? $_POST['MdpUser'] : '';
-			//$crypt = hashage($MdpUser); 
-
-			if ($submit) 
-			{
-				$utilisateur = new utilisateur();
-				$utilisateur = $utilisateur->find($MailUser, $MdpUser);
-
-				if ($demandeur['MailUser']== $MailUser && $demandeur['MdpUser']== $MdpUser) //$crypt
-				{
-					$_SESSION['MailUser'] = $MailUser;
-
-					header('Location: index.php');
-				}
-				else 
-				{
-					echo '<script type="text/javascript"> alert("Utilisateur ou mot de passe non reconnu "); </script>';   
-				}
-			}
+			
 		?>
 	</div>
 </section>

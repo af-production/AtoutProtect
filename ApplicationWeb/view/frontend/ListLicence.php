@@ -34,7 +34,7 @@ ob_start();
 				<td class="tabLicence"> <?php echo $data['Description']; ?></td>
 				<td class="tabLicence" style="width: 70px; border-right: 1px solid #ddd; text-align: center;"> <?php echo $data['Price']." €"; ?></td>
 				<td class="tabLicence">
-					<a href=<?php echo 'index.php?action=listLicenceById&idLicence='.$data['IdLicence']; ?> class="buttonBuy">Acheter</a></li>
+					<a href=<?php echo 'index.php?action=listLicenceById&idLicence='.$data['IdLicence']; ?> class="buttonBuy">Acheter</a>
 				</td>
 			</tr>
 			<?php

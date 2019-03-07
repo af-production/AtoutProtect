@@ -259,6 +259,20 @@ input, select, textarea {
 		text-align: right;
 	}
 
+	.fondGris{
+		color:#FFF;
+	}
+
+	.champFormulaire{
+		padding:8px;
+		display:block;
+		border:none;
+		border-bottom:1px solid #ccc;
+		width:100%;
+		border-radius:16px;
+		background-color: #49E;
+	}
+
 /* Container */
 
 	.container {

@@ -1,5 +1,9 @@
 <?php 
 session_start();
+$MailUser = isset($_SESSION['MailUser']) ? $_SESSION['MailUser'] : '';
+if($MailUser){
+	echo "<div id='tracker'> <p class='verifLogin'>Connecté en tant que : ".$MailUser."</p> </div>";
+}
 ?>
 
 <!DOCTYPE html>

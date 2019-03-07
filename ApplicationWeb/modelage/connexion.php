@@ -6,7 +6,7 @@ include ('hashage.php');
 ?>
 
 
-<form action="connexion.php" method="post" name="formulaire">  
+<form action="index.php" method="post" name="formulaire">  
 	<p> Veuillez remplir le formulaire</p>
 	<p> Adresse mail <br /><input type="text" name="MailUser" placeholder="utilisateur" required/></p>
 	<p> Mot de passe <br /><input type="password" name="MdpUser" value="" placeholder="MotPa$$e" required/></p>

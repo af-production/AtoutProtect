@@ -8,7 +8,7 @@ $styleMenu = '"mainAchat"';
 
 <section class="main styleAchat">
     <div class="container">
-        <div > 
+        <div> 
 			<?php
 			while ($data = $listById->fetch())
 			{

@@ -7,7 +7,15 @@ try {
             getLicences();
         }elseif ($_GET['action'] == 'listLicenceById') {
             getLicence();
-        }
+        }elseif ($_GET['action'] == 'connexionUser') {
+        	if(isset($_GET['MailUser']))
+        	{
+        		getUser(); 
+        	}else
+        	{
+    		 	connectUser();
+        	}
+       	}
     }
     else {
         getLicences();

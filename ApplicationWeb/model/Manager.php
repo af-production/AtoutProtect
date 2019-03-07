@@ -1,6 +1,6 @@
 <?php
 
-namespace AtoutSA\Model;
+namespace AtoutProtect\Model;
 
 class Manager
 {

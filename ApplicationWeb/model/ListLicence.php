@@ -1,6 +1,6 @@
 <?php
 
-namespace AtoutSA\Model;
+namespace AtoutProtect\Model;
 
 require_once("model/Manager.php");
 
@@ -12,12 +12,12 @@ class Licence extends Manager
         $req = $db->query('SELECT * FROM Licence');
         return $req;
     }
-
+    
     public function getLicence($getId)
     {
         $db = $this->dbConnect();
-        $licence = $db->prepare('SELECT * FROM Licence WHERE IdLicence = '.$getId);
-        $licence->execute(array($getId));
+        $licence = $db->prepare('SELECT * FROM Licence WHERE IdLicence = :getId');
+        $licence->execute(array(':getId'=>$getId));
         return $licence;
     }
 

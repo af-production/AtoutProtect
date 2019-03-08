@@ -14,7 +14,7 @@ $styleMenu = '"mainAchat"';
 			{
 			?>	
 				<p class="linkToPay">
-					Vous avec opté pour la licence <?php echo $data["Wording"];?> dont le montant total à payer est de <?php echo $data["Price"];?> € </br>
+					Vous avec opté pour la licence <?php echo $data["Libelle"];?> dont le montant total à payer est de <?php echo $data["Prix"];?> € </br>
 					Par quel moyen de paiement souahitez-vous régler votre achat ?
 				</p>
 				<a class="linkToPay" href="https://www.paypal.com/fr/webapps/mpp/home">

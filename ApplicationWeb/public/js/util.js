@@ -36,10 +36,10 @@
 
 	/**
 	 * Panel-ify an element.
-	 * @param {object} userConfig User config.
+	 * @param {object} utilisateurConfig utilisateur config.
 	 * @return {jQuery} jQuery object.
 	 */
-	$.fn.panel = function(userConfig) {
+	$.fn.panel = function(utilisateurConfig) {
 
 		// No elements?
 			if (this.length == 0)
@@ -49,7 +49,7 @@
 			if (this.length > 1) {
 
 				for (var i=0; i < this.length; i++)
-					$(this[i]).panel(userConfig);
+					$(this[i]).panel(utilisateurConfig);
 
 				return $this;
 
@@ -92,7 +92,7 @@
 				// Class to toggle.
 					visibleClass: 'visible'
 
-			}, userConfig);
+			}, utilisateurConfig);
 
 			// Expand "target" if it's not a jQuery object already.
 				if (typeof config.target != 'jQuery')

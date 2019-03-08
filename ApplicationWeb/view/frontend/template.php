@@ -1,16 +1,17 @@
 <?php 
-session_start();
-$MailUser = isset($_SESSION['MailUser']) ? $_SESSION['MailUser'] : '';
-if($MailUser){
-	echo "<div id='tracker'> <p class='verifLogin'>Connecté en tant que : ".$MailUser."</p> </div>";
-}
+	session_start();
+	$MailUtilisateur = isset($_SESSION['MailUtilisateur']) ? $_SESSION['MailUtilisateur'] : '';
+	if($MailUtilisateur){
+		echo "<div id='tracker'> <p class='verifLogin'>Connecté en tant que : ".$MailUtilisateur." 
+		<a href= 'index.php?action=deconnexion' class='buttonBuy'>Déconnexion</a></p></div>";
+	}
 ?>
 
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>Atout SA</title>
+        <title>Atout Protect</title>
         <link href="public/css/main.css" rel="stylesheet" /> 
     </head>
         

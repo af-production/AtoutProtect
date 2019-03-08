@@ -1,6 +1,5 @@
 <?php 
 $styleMenu = '"main style2"';
-$idForLicence = 1;
 ob_start();
 ?>
 
@@ -11,27 +10,36 @@ ob_start();
     <div class="container">
     <!--<div class="row gtr-150"> !-->
         <div class="col-6 col-12-medium"> 
-            <p class="fondGris">
-                Veuillez vous connecter afin d'effectuer votre achat.
-            </p>
+        	<?php if($inscription){
+        		echo '<p class="fondGris">
+                	Veuillez renseigner ces champs afin de vous inscrire. Après ceci vous pourrez effectuer votre achat.
+            	</p>';
+        	}else{
+        		echo '<p class="fondGris">
+                	Veuillez vous connecter afin d\'effectuer votre achat.
+            	</p>';
+            } 
+            ?>
+            
         </div>
       
 		<form action="#" method="post" name="formulaire">  
 			<p class="fondGris"> 
-				Adresse mail <br /><input class="champFormulaire" type="text" name="MailUser" placeholder="exemple@mail.com" required/>
-				Mot de passe <br /><input class="champFormulaire" type="password" name="MdpUser" value="" placeholder="MotPa$$e" required/>
+				Adresse mail <br /><input class="champFormulaire" type="text" name="MailUtilisateur" placeholder="exemple@mail.com" required/>
+				Mot de passe <br /><input class="champFormulaire" type="password" name="MdpUtilisateur" value="" placeholder="MotPa$$e" required/>
+				<?php if($inscription)
+				{
+	        		echo 'Confirmez le mot de passe <br /><input class="champFormulaire" type="password" name="VerifMdp" value="" placeholder="MotPa$$e" required/>
+	        		Adresse client<br /><input class="champFormulaire" type="text" name="AdresseUtilisateur" placeholder="13 rue de Poitoux" required/>
+					Entreprise <br /><input class="champFormulaire" type="text" name="NomUtilisateur" value="" placeholder="Limayrac" required/>';
+				}?>
+				
+				
 			</p>
 			<input type="submit" name="submit" value="Se connecter"></br></br>
 		</form>
 
-		<?php
-			/*if(isset($_GET['inscription']))
-			{
-				echo"<b><font color='orange'> Vous venez bien de vous inscrire, veuillez vous connecter.</font></b></br>";
-			}  */       
-
-			
-		?>
+		
 	</div>
 </section>
 

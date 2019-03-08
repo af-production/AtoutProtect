@@ -30,9 +30,9 @@ ob_start();
 			{
 			?>
 			<tr>
-				<td class="tabLicence" style="width: 140px; text-align: center;"> <?php echo $data['Wording']; ?></td>
+				<td class="tabLicence" style="width: 140px; text-align: center;"> <?php echo $data['Libelle']; ?></td>
 				<td class="tabLicence"> <?php echo $data['Description']; ?></td>
-				<td class="tabLicence" style="width: 70px; border-right: 1px solid #ddd; text-align: center;"> <?php echo $data['Price']." €"; ?></td>
+				<td class="tabLicence" style="width: 70px; border-right: 1px solid #ddd; text-align: center;"> <?php echo $data['Prix']." €"; ?></td>
 				<td class="tabLicence">
 					<a href=<?php echo 'index.php?action=listLicenceById&idLicence='.$data['IdLicence']; ?> class="buttonBuy">Acheter</a>
 				</td>

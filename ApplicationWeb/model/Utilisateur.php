@@ -6,27 +6,39 @@ require_once("model/Manager.php");
 
 class Utilisateur extends Manager
 {
-    public function getUserByMail($MailUser)
+    public function getUtilisateurByMail($MailUtilisateur)
     {
         $db = $this->dbConnect();
-        $req = $db->prepare('SELECT * FROM user where MailUser = :MailUser');
-        $req->execute(array(':MailUser' => $MailUser));
+        $req = $db->prepare('SELECT * FROM utilisateur where MailUtilisateur = :MailUtilisateur');
+        $req->execute(array(':MailUtilisateur' => $MailUtilisateur));
         return $req;
     }
 
-    function find($MailUser, $MdpUser) 
+    function find($MailUtilisateur) 
     {
 	  	$db = $this->dbConnect();
-	    $sql = "select MailUser, MdpUser from user where MailUser=:MailUser and MdpUser=:MdpUser";
+	    $sql = "select MailUtilisateur, MdpUtilisateur from utilisateur where MailUtilisateur=:MailUtilisateur";
 	    try {
-	      $sth = $db->prepare($sql);
-	      $sth->execute(array(":MailUser" => $MailUser,
-	                          ":MdpUser" => $MdpUser));
-	      $row = $sth->fetch(PDO::FETCH_ASSOC);
+	    	$sth = $db->prepare($sql);
+	        $sth->execute(array(":MailUtilisateur" => $MailUtilisateur));
+	        
 	    } catch (PDOException $e) {
-	      throw new Exception("Erreur lors de la requête SQL : " . $e->getMessage());
+	        throw new Exception("Erreur lors de la requête SQL : " . $e->getMessage());
 	    }
-	    $pseudo = $row ; 
-	    return $pseudo ;
+	    print_r($sth);
+	    return $sth;
     }
+
+    function creationUtilisateur($utilisateur) 
+    {
+		$db = $this->dbConnect();
+		$sql = "INSERT INTO Utilisateur(MailUtilisateur ,MdpUtilisateur ,NomUtilisateur, AdresseUtilisateur) VALUES ( :MailUtilisateur, :MdpUtilisateur, :NomUtilisateur, :AdresseUtilisateur)";
+		try {
+			$sth = $db->prepare($sql);
+
+		    $sth->execute(array(":MailUtilisateur" => $utilisateur['MailUtilisateur'], ":MdpUtilisateur" => $utilisateur['MdpUtilisateur'], ":NomUtilisateur" => $utilisateur['NomUtilisateur'], ":AdresseUtilisateur" => $utilisateur['AdresseUtilisateur']));
+		} catch (PDOException $e) {
+			throw new Exception("Erreur lors de la requête SQL : " . $e->getMessage());
+		}
+	}
 }

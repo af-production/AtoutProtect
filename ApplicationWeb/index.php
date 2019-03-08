@@ -7,14 +7,18 @@ try {
             getLicences();
         }elseif ($_GET['action'] == 'listLicenceById') {
             getLicence();
-        }elseif ($_GET['action'] == 'connexionUser') {
-        	if(isset($_GET['MailUser']))
+        }elseif ($_GET['action'] == 'connexionUtilisateur') {
+        	if(isset($_GET['MailUtilisateur']))
         	{
-        		getUser(); 
+        		getUtilisateur(); 
         	}else
         	{
-    		 	connectUser();
+    		 	connectUtilisateur();
         	}
+       	}elseif($_GET['action'] == 'inscription'){
+       		inscriptionUtilisateur();
+       	}elseif($_GET['action'] == 'deconnexion'){
+       		deconnexionUtilisateur();
        	}
     }
     else {

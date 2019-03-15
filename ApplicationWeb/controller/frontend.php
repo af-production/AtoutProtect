@@ -86,7 +86,7 @@ function inscriptionUtilisateur()
 
 function deconnexionUtilisateur()
 {
-	require('view/frontend/ListLicence.php');
+	getLicences();
 	if(isset($_SESSION['MailUtilisateur']))
 	{
 		session_unset();
@@ -94,6 +94,6 @@ function deconnexionUtilisateur()
 		echo '<body onLoad="alert(\'Déconnecté\')">';
 		header('Location: index.php');
 	}else{
-		echo "Lol";
+		echo "Session introuvable";
 	}
 }

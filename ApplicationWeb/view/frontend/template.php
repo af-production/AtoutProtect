@@ -1,10 +1,5 @@
 <?php 
-	session_start();
-	$MailUtilisateur = isset($_SESSION['MailUtilisateur']) ? $_SESSION['MailUtilisateur'] : '';
-	if($MailUtilisateur){
-		echo "<div id='tracker'> <p class='verifLogin'>Connecté en tant que : ".$MailUtilisateur." 
-		<a href= 'index.php?action=deconnexion' class='buttonBuy'>Déconnexion</a></p></div>";
-	}
+	session_start();	
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +11,23 @@
     </head>
         
     <body>
-    	<header class=<?= $styleMenu ?> >
+    	<ul class="navBar">
+    		<li class="navBar"> <a class="navBar" href="index.php?action=listLicences"> Licences </a> </li>
+    		<?php 
+	    		if(isset($_SESSION['MailUtilisateur']))
+	    		{
+	    			echo '<li class="navBar" style="float: right;"> <a href="index.php?action=deconnexion"> Deconnexion </a> </li><li class="navBar" style="float: right;"> Connecté en tant que : '.$_SESSION['MailUtilisateur'].'</li>';
+	    		}
+	    		else
+	    		{
+	    			echo '<li class="navBar"> <a class="navBar" href="index.php?action=connexionUtilisateur"> Connexion </a> </li>
+	    			<li class="navBar"> <a class="navBar" href="index.php?action=inscription"> Inscription </a> </li>
+	    			';
+	    		}
+    		?>	
+		</ul>
+
+		<header class=<?= $styleMenu ?> >
     		
     	</header>
         <?= $content ?>

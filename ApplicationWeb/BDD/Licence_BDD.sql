@@ -66,6 +66,6 @@ INSERT INTO Licence (Libelle, Description, Prix) VALUES
 # Insertion : utilisateur
 #------------------------------------------------------------
 
-INSERT INTO Utilisateur (MailUtilisateur, NomUtilisateur, MdpUtilisateur) VALUES
-('toto@tata.fr', 'toto', 'tata'),
-('utilisateur@mail.com', 'utilisateur', 'password');
+INSERT INTO Utilisateur (MailUtilisateur, NomUtilisateur, MdpUtilisateur, AdresseUtilisateur) VALUES
+('toto@tata.fr', 'toto', 'tata', ''),
+('utilisateur@mail.com', 'utilisateur', 'password', 'Rue de la ploupe');

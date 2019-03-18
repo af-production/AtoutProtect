@@ -145,16 +145,21 @@ input, select, textarea {
 		color: inherit;
 		text-decoration: none;
 	}
-
-		a.linkToPay{
-			margin-left: 20%;
-		}
-
 		a:hover {
 			border-bottom-color: transparent !important;
 			color: #6bd4c8;
 		}
 
+
+	paypal{
+		position: relative;
+		left: -12%;
+	}
+
+	hipay{
+		position: relative;
+		right: -12%;
+	}
 
 	p {
 		margin: 0 0 2em 0;
@@ -164,6 +169,7 @@ input, select, textarea {
 		margin: 0 0 2em 0;
 		color: #333;
 	}
+
 
 	h1, h2, h3, h4, h5, h6, .h1Center {
 		color: #555;

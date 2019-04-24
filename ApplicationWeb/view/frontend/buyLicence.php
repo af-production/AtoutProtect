@@ -18,6 +18,17 @@ $styleMenu = '"mainAchat"';
 					Par quel moyen de paiement souhaitez-vous régler votre achat ?
 				</p>
 
+				<!-- Set up a container element for the button -->
+			    <div id="paypal-button-container"></div>
+
+			    <!-- Include the PayPal JavaScript SDK -->
+			    <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD"></script>
+
+			    <script>
+			        // Render the PayPal button into #paypal-button-container
+			        paypal.Buttons().render('#paypal-button-container');
+			    </script>
+
 				<paypal>
 					<script src="https://www.paypal.com/sdk/js?client-id=sb"></script>
 					<script>paypal.Buttons().render('paypal');</script>
@@ -28,6 +39,9 @@ $styleMenu = '"mainAchat"';
 					</a>
 				</hipay>
 				
+    </style>
+
+
 			<?php
 			}
 			$listById->closeCursor();

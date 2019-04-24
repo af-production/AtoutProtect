@@ -151,15 +151,7 @@ input, select, textarea {
 		}
 
 
-	paypal{
-		position: relative;
-		left: -12%;
-	}
-
-	hipay{
-		position: relative;
-		right: -12%;
-	}
+	
 
 	p {
 		margin: 0 0 2em 0;
@@ -633,7 +625,30 @@ input, select, textarea {
 		background-color: #999;
 	}
 
-		
+	/* Media query for mobile viewport */
+    @media screen and (max-width: 400px) {
+        #paypal-button-container {
+            width: 100%;
+        }
+    }
+    
+    /* Media query for desktop viewport */
+    @media screen and (min-width: 400px) {
+        #paypal-button-container {
+            width: 250px;
+        }
+    }
+
+    #paypal-button-container{
+		position: relative;
+		left: -12%;
+	}
+
+	hipay{
+		position: relative;
+		right: -12%;
+	}
+
 /* Main */
 
 	.main {

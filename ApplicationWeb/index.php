@@ -19,7 +19,10 @@ try {
        		inscriptionUtilisateur();
        	}elseif($_GET['action'] == 'deconnexion'){
        		deconnexionUtilisateur();
-       	}
+       	}elseif($_GET['action'] == 'calculLicence'){
+			calculLicence();
+		}
+		
     }
     else {
         getLicences();

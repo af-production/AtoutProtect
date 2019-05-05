@@ -84,6 +84,52 @@ function inscriptionUtilisateur()
     }
 }
 
+function calculLicence()
+{
+	//index.php?action=calculLicence&mac=D8-9E-F3-76-DF-D9&date=24-04-2019&duree=2M
+	//$inscription = true;
+	//$submit=isset($_POST['submit']) ? $_POST['submit'] : '';
+	require('view/frontend/calculLicence.php');
+	$mac = isset($_GET['mac']) ? $_GET['mac'] : '';
+	$date = isset($_GET['date']) ? $_GET['date'] : '';
+	$duree = isset($_GET['duree']) ? $_GET['duree'] : '';
+	
+	$DtDateFin = new DateTime($date);
+	$DtDateFin -> format('d-m-Y');
+	
+	$DtDuree = new DateInterval('P'.$duree);
+	
+	$DtDateFin -> add($DtDuree);
+    
+	$number = $DtDateFin->format('dmY');
+	
+	//echo $number;
+	
+	$secretKey = 'Thi§ !s @n Hyp3R C';
+	
+	$licence = $mac.$date.$duree.$secretKey;
+	
+	$licence = hash('gost-crypto',$licence);
+	
+	
+	
+	echo $licence ; ?></br> Lol</br><?php
+	
+	echo base64_encode($licence);
+	
+	/*if($MdpUtilisateur == $VerifMdp)
+	{
+		$tableau = array("MailUtilisateur" => $MailUtilisateur, "MdpUtilisateur" => $MdpUtilisateur, "NomUtilisateur" => $NomUtilisateur, "AdresseUtilisateur" => $AdresseUtilisateur);
+		$utilisateur = new \AtoutProtect\Model\Utilisateur();
+		$utilisateur->creationUtilisateur($tableau);
+		header('Location: index.php?action=connexionutilisateur');
+	}
+	else {
+		echo "les deux mots de passes sont différents";
+	}*/
+    
+}
+
 function deconnexionUtilisateur()
 {
 	getLicences();

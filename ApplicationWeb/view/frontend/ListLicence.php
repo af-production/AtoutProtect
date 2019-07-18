@@ -29,14 +29,14 @@ ob_start();
 			while ($data = $list->fetch())
 			{
 			?>
-			<tr>
-				<td class="tabLicence" style="width: 140px; text-align: center;"> <?php echo $data['Libelle']; ?></td>
-				<td class="tabLicence"> <?php echo $data['Description']; ?></td>
-				<td class="tabLicence" style="width: 70px; border-right: 1px solid #ddd; text-align: center;"> <?php echo $data['Prix']." €"; ?></td>
-				<td class="tabLicence">
-					<a class="buttonBuy" href=<?php echo '"index.php?action=listLicenceById&idLicence='.$data['IdLicence'].'"';?> >Acheter</a>
-				</td>
-			</tr>
+				<tr>
+					<td class="tabLicence" style="width: 140px; text-align: center;"> <?php echo $data['Libelle']; ?></td>
+					<td class="tabLicence"> <?php echo $data['Description']; ?></td>
+					<td class="tabLicence" style="width: 70px; border-right: 1px solid #ddd; text-align: center;"> <?php echo $data['Prix']." €"; ?></td>
+					<td class="tabLicence">
+						<a class="buttonBuy" href=<?php echo '"index.php?action=listLicenceById&idLicence='.$data['IdLicence'].'"';?> >Acheter</a>
+					</td>
+				</tr>
 			<?php
 			$idForLicence++;
 			}				

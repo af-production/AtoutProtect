@@ -43,12 +43,12 @@
 		    </ul>
 		</section>
 
-		<!-- Scripts -->
+		<!-- Scripts
 		<script src="../../public/js/jsquery.min.js"></script>
 		<script src="../../public/js/jquery.scrolly.min.js"></script>
 		<script src="../../public/js/browser.min.js"></script>
 		<script src="../../public/js/breakpoints.min.js"></script>
 		<script src="../../public/js/util.js"></script>
-		<script src="../../public/js/main.js"></script>
+		<script src="../../public/js/main.js"></script>   -->
     </body>
 </html>

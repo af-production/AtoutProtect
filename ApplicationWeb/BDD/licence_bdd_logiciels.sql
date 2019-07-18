@@ -19,6 +19,7 @@ CREATE TABLE Licence(
         IdLicence   Int  Auto_increment  NOT NULL ,
         Libelle     Varchar (25) NOT NULL ,
         Description Text NOT NULL ,
+        DureeValide Text NOT NULL,
         Prix        Float NOT NULL
 	,CONSTRAINT Licence_PK PRIMARY KEY (IdLicence)
 )ENGINE=InnoDB;
@@ -45,6 +46,8 @@ CREATE TABLE Utilisateur(
 CREATE TABLE acheter(
         IdUtilisateur     Int NOT NULL ,
         IdLicence         Int NOT NULL ,
+        IdLogiciel		  Int NOT NULL ,
+        DateAchat		  Date,
         generationLicence Varchar (120) NOT NULL
 	,CONSTRAINT acheter_PK PRIMARY KEY (IdUtilisateur,IdLicence)
 
@@ -52,20 +55,39 @@ CREATE TABLE acheter(
 	,CONSTRAINT acheter_Licence0_FK FOREIGN KEY (IdLicence) REFERENCES Licence(IdLicence)
 )ENGINE=InnoDB;
 
+#------------------------------------------------------------
+# Table: Logiciels
+#------------------------------------------------------------
+
+CREATE TABLE Logiciel(
+        IdLogiciel	      Int Auto_increment NOT NULL ,
+        NomLogiciel       Varchar (40) NOT NULL         
+	,CONSTRAINT Logiciel_PK PRIMARY KEY (IdLogiciel)
+)ENGINE=InnoDB;
 
 #------------------------------------------------------------
 # Insertion : Licence
 #------------------------------------------------------------
 
-INSERT INTO Licence (Libelle, Description, Prix) VALUES
-('Mensuelle', "Cette licence n'est active que durant 30 jours à compter du jour de l'achat. Elle permet d'accéder à toutes les fonctionnalité pendant sa durée d'activation", '35'),
-('Ponctuelle 30j', "Cette licence consomme un jeton à chaque démmarage du logiciel. Chaque jeton consommé est valable pendant 10 heures. Au bout de 10 heures d'utilisation, le programme se ferme en sauvegardant votre travail", '60'),
-('Annuelle', "Cette licence est active durant 360 jours à compter du jour de l'achat. Elle permet d'accéder à toutes les fonctionnalité pendant sa durée d'activation", '350');
+INSERT INTO Licence (Libelle, Description, DureeValide, Prix) VALUES
+('Mensuelle', "Cette licence n'est active que durant 30 jours à compter du jour de l'achat. Elle permet d'accéder à toutes les fonctionnalité pendant sa durée d'activation", '30 jours','35'),
+#('Ponctuelle 30j', "Cette licence consomme un jeton à chaque démmarage du logiciel. Chaque jeton consommé est valable pendant 10 heures. Au bout de 10 heures d'utilisation, le programme se ferme en sauvegardant votre travail", '60'),
+('Annuelle', "Cette licence est active durant 360 jours à compter du jour de l'achat. Elle permet d'accéder à toutes les fonctionnalité pendant sa durée d'activation", '365 jours','350');
+
 
 #------------------------------------------------------------
-# Insertion : utilisateur
+# Insertion : Logiciel
 #------------------------------------------------------------
 
-INSERT INTO Utilisateur (MailUtilisateur, NomUtilisateur, MdpUtilisateur, AdresseUtilisateur) VALUES
-('toto@tata.fr', 'toto', 'tata', ''),
-('utilisateur@mail.com', 'utilisateur', 'password', 'Rue de la ploupe');
+INSERT INTO Logiciel (NomLogiciel) VALUES
+( 'Word' ),
+( 'Excel' ),
+( 'PdfCreator' ),
+( 'Audacity' );
+
+#------------------------------------------------------------
+# Insertion : Utilisateur
+#------------------------------------------------------------
+
+INSERT INTO Utilisateur (NomUtilisateur, MailUtilisateur, MdpUtilisateur, AdresseUtilisateur ) VALUES
+( 'Jean', 'user1@user1.fr', '44613bb6951be885fa66cf86196d45570eb23d370d332a485357280421b30fde', '1 rue de grange' );

@@ -1010,3 +1010,11 @@ input, select, textarea {
 			}
 
 	}
+
+
+
+	.paypal-button-container {
+	    min-width: 80px;
+	    max-width: 300px;
+	}
+

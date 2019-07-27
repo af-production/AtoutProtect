@@ -1,4 +1,7 @@
 <?php 
+if(!isset($_SESSION)){
+	session_start();
+}
 ob_start();
 $styleMenu = '"mainAchat"';
 ?>
@@ -39,8 +42,8 @@ $styleMenu = '"mainAchat"';
 					</a>
 				</hipay>
 				
+				<a class="buttonBuy" href=<?php echo 'index.php?action=acheter&idLicence='.$data['IdLicence'].'&idLogiciel='.$_GET['idLogiciel'];?> >Forcer Achat</a>
     </style>
-
 
 			<?php
 			}

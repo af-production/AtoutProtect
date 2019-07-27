@@ -1,8 +1,10 @@
 <?php
 
 // Chargement des classes
-require_once('model/ListLicence.php');
+require_once('model/Licence.php');
 require_once('model/utilisateur.php');
+require_once('model/Logiciel.php');
+require_once('model/Achat.php');
 
 function getLicences()
 {
@@ -18,11 +20,41 @@ function getLicence()
     require('view/frontend/buyLicence.php');
 }
 
+function getLogiciels()
+{
+    $ListLogiciels = new \AtoutProtect\Model\Logiciel();
+    $list = $ListLogiciels->getLogiciels();
+    require('view/frontend/ListLogiciels.php');
+}
+
+function getLogiciel()
+{
+    $ListLogicielById = new \AtoutProtect\Model\Logiciel();
+    $LogicielById = $ListLogicielById->getLogiciel($_GET['idLogiciel']);
+    require('view/frontend/buyLicence.php');
+}
+
 function getUtilisateur()
 {
 	$utilisateurByMail = new \AtoutProtect\Model\Utilisateur();
 	$utilisateur = $utilisateurByMail->getutilisateurByMail($_SESSION['MailUtilisateur']);
 	$data = $utilisateur->fetch();
+}
+
+function achatLicence(){
+	session_start();
+	$idLicence 		= $_GET['idLicence'];
+	$idLogiciel 	= $_GET['idLogiciel'];
+	$IdUtilisateur 	= $_SESSION['IdUtilisateur'];
+
+	$achat = new \AtoutProtect\Model\Achat();
+	$achat->achatLicence($IdUtilisateur,$idLicence,$idLogiciel);
+	header('Location: index.php?action=achatEffectue&idLogiciel='.$idLogiciel.'&idLicence='.$idLicence);
+
+}
+
+function confirmationAchat(){
+	require('view/frontend/confirmationAchat.php'); 
 }
 
 function connectUtilisateur()
@@ -44,6 +76,7 @@ function connectUtilisateur()
 		if ($tabUtilisateur['MailUtilisateur']== $MailUtilisateur && $tabUtilisateur['MdpUtilisateur']== $MdpUtilisateur)
 		{
 			$_SESSION['MailUtilisateur'] = $MailUtilisateur;
+			$_SESSION['IdUtilisateur'] = $tabUtilisateur['IdUtilisateur'];
 			header('Location: index.php');
 		}
 		else 
@@ -82,14 +115,8 @@ function inscriptionUtilisateur()
 function deconnexionUtilisateur()
 {
 	session_start();
-	echo $_SESSION['MailUtilisateur'];
-	if(isset($_SESSION['MailUtilisateur']))
-	{
-		session_unset();
-		session_destroy();
-		header('Location: index.php');
-		
-	}else{
-		echo "Session introuvable";
-	}
+	session_unset();
+	session_destroy();
+	header('Location: index.php');
+	
 }

@@ -17,7 +17,7 @@ class Utilisateur extends Manager
     function find($MailUtilisateur) 
     {
 	  	$db = $this->dbConnect();
-	    $sql = "select MailUtilisateur, MdpUtilisateur from utilisateur where MailUtilisateur=:MailUtilisateur";
+	    $sql = "select MailUtilisateur, MdpUtilisateur, IdUtilisateur from utilisateur where MailUtilisateur=:MailUtilisateur";
 	    try {
 	    	$sth = $db->prepare($sql);
 	        $sth->execute(array(":MailUtilisateur" => $MailUtilisateur));

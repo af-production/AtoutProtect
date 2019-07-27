@@ -3,7 +3,15 @@ require('controller/frontend.php');
 
 try {
      if(isset($_GET['action'])) {
-        if ($_GET['action'] == 'listLicences') {
+        if ($_GET['action'] == 'listLogiciels') {
+            getLogiciels();
+        }elseif ($_GET['action'] == 'logiciel') {
+            getLogiciel();
+        }elseif ($_GET['action'] == 'acheter') {
+            achatLicence();
+        }elseif ($_GET['action'] == 'achatEffectue'){
+            confirmationAchat();
+        }elseif ($_GET['action'] == 'listLicences') {
             getLicences();
         }elseif ($_GET['action'] == 'listLicenceById') {
             getLicence();
@@ -19,13 +27,10 @@ try {
        		inscriptionUtilisateur();
        	}elseif($_GET['action'] == 'deconnexion'){
        		deconnexionUtilisateur();
-       	}elseif($_GET['action'] == 'calculLicence'){
-			calculLicence();
-		}
-		
+       	}
     }
     else {
-        getLicences();
+        getLogiciels();
     }
 }
 catch(Exception $e) {

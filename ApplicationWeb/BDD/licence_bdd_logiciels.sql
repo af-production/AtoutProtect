@@ -34,8 +34,9 @@ CREATE TABLE Utilisateur(
         MailUtilisateur    Varchar (120) NOT NULL ,
         NomUtilisateur     Varchar (30) NOT NULL ,
         MdpUtilisateur     Varchar (150) NOT NULL ,
-        AdresseUtilisateur Varchar (80) NOT NULL
-	,CONSTRAINT Utilisateur_PK PRIMARY KEY (IdUtilisateur)
+        AdresseUtilisateur Varchar (80) NOT NULL,
+	MacUtilisateur Varchar (40) NOT NULL
+        ,CONSTRAINT Utilisateur_PK PRIMARY KEY (IdUtilisateur)
 )ENGINE=InnoDB;
 
 
@@ -61,8 +62,9 @@ CREATE TABLE acheter(
 
 CREATE TABLE Logiciel(
         IdLogiciel	      Int Auto_increment NOT NULL ,
-        NomLogiciel       Varchar (40) NOT NULL         
-	,CONSTRAINT Logiciel_PK PRIMARY KEY (IdLogiciel)
+        NomLogiciel       Varchar (40) NOT NULL,  
+        DescriptionLogiciel Text NOT NULL,       
+	CONSTRAINT Logiciel_PK PRIMARY KEY (IdLogiciel)
 )ENGINE=InnoDB;
 
 #------------------------------------------------------------
@@ -79,11 +81,11 @@ INSERT INTO Licence (Libelle, Description, DureeValide, Prix) VALUES
 # Insertion : Logiciel
 #------------------------------------------------------------
 
-INSERT INTO Logiciel (NomLogiciel) VALUES
-( 'Word' ),
-( 'Excel' ),
-( 'PdfCreator' ),
-( 'Audacity' );
+INSERT INTO Logiciel (NomLogiciel, DescriptionLogiciel) VALUES
+( 'Word', 'Logiciel permmetant le traitement de texte.' ),
+( 'Excel', 'Tableur permmetant de faciliter une multitudes de tâches liées aux calculs.' ),
+( 'PdfCreator', 'Logiciels de génrétation de PDF, et de modifications de ces derniers.' ),   
+( 'Audacity', 'Logiciel de traitement de son.' );
 
 #------------------------------------------------------------
 # Insertion : Utilisateur

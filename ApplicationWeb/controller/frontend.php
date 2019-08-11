@@ -54,6 +54,13 @@ function achatLicence(){
 }
 
 function confirmationAchat(){
+	$ListLogicielById = new \AtoutProtect\Model\Logiciel();
+    $LogicielById = $ListLogicielById->getLogiciel($_GET['idLogiciel']);
+    $Logiciel = $LogicielById->fetch();
+
+	$ListLicenceById = new \AtoutProtect\Model\Licence();
+    $LicenceById = $ListLicenceById->getLicence($_GET['idLicence']);
+    $Licence = $LicenceById->fetch();
 	require('view/frontend/confirmationAchat.php'); 
 }
 

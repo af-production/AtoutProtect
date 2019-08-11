@@ -13,7 +13,7 @@ class Logiciel extends Manager
         return $req;
     }
     
-    public function getLogicielById($getId)
+    public function getLogiciel($getId)
     {
         $db = $this->dbConnect();
         $licence = $db->prepare('SELECT * FROM Logiciel WHERE IdLogiciel = :getId');

@@ -12,7 +12,7 @@ $styleMenu = '"mainAchat"';
 <section class="main styleAchat">
     <div class="container">
     	<?php 
-        echo '<p> Votre achat concernant le logiciel '.$_GET['idLogiciel'].' pour une durée de '.$_GET['DureeValide']. 'a bien été effectué. Nous vous demandons de bien vouloir démarrer / redémarrer votre logiciel avec un accès internet afin que la licence soit appliquée.';
+        echo '<p> Votre achat concernant le logiciel '.$Logiciel['NomLogiciel'].' pour une durée de '.$Licence['DureeValide']. 'a bien été effectué. Nous vous demandons de bien vouloir démarrer / redémarrer votre logiciel avec un accès internet afin que la licence soit appliquée.';
 			?>
 
 

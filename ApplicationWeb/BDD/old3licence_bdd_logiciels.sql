@@ -16,11 +16,11 @@ USE Licence_BDD;
 #------------------------------------------------------------
 
 CREATE TABLE Licence(
-        IdLicence   Int  Auto_increment  NOT NULL ,
-        Libelle     Varchar (25) NOT NULL ,
-        Description Text NOT NULL ,
-        DureeValide Text NOT NULL,
-        Prix        Float NOT NULL
+        IdLicence       Int  Auto_increment  NOT NULL ,
+        Libelle         Varchar (25) NOT NULL ,
+        Description     Text NOT NULL ,
+        DureeValide     Text NOT NULL,
+        Prix            Float NOT NULL
 	,CONSTRAINT Licence_PK PRIMARY KEY (IdLicence)
 )ENGINE=InnoDB;
 
@@ -35,8 +35,19 @@ CREATE TABLE Utilisateur(
         NomUtilisateur     Varchar (30) NOT NULL ,
         MdpUtilisateur     Varchar (150) NOT NULL ,
         AdresseUtilisateur Varchar (80) NOT NULL,
-	MacUtilisateur Varchar (40) NOT NULL
+	MacUtilisateur     Varchar (40) NOT NULL
         ,CONSTRAINT Utilisateur_PK PRIMARY KEY (IdUtilisateur)
+)ENGINE=InnoDB;
+
+#------------------------------------------------------------
+# Table: Logiciel
+#------------------------------------------------------------
+
+CREATE TABLE Logiciel(
+        IdLogiciel              Int Auto_increment NOT NULL,
+        NomLogiciel             Varchar (40) NOT NULL,  
+        DescriptionLogiciel     Text NOT NULL,       
+        CONSTRAINT Logiciel_PK PRIMARY KEY (IdLogiciel)
 )ENGINE=InnoDB;
 
 
@@ -45,27 +56,15 @@ CREATE TABLE Utilisateur(
 #------------------------------------------------------------
 
 CREATE TABLE acheter(
-        IdUtilisateur     Int NOT NULL ,
-        IdLicence         Int NOT NULL ,
-        IdLogiciel		  Int NOT NULL ,
-        DateAchat		  Date,
-        GenerationLicence Varchar (150) default NULL,
-        AdresseMac 		  Varchar (150) default NULL
-	,CONSTRAINT acheter_PK PRIMARY KEY (IdUtilisateur,IdLicence)
-
-	,CONSTRAINT acheter_Utilisateur_FK FOREIGN KEY (IdUtilisateur) REFERENCES Utilisateur(IdUtilisateur)
+        IdUtilisateur           Int NOT NULL ,
+        IdLicence               Int NOT NULL ,
+        IdLogiciel		Int NOT NULL ,
+        DateAchat	        Date,
+        generationLicence Varchar (120),
+        CONSTRAINT acheter_PK PRIMARY KEY (IdUtilisateur,IdLicence,IdLogiciel)
+        ,CONSTRAINT acheter_Utilisateur_FK FOREIGN KEY (IdUtilisateur) REFERENCES Utilisateur(IdUtilisateur)
 	,CONSTRAINT acheter_Licence0_FK FOREIGN KEY (IdLicence) REFERENCES Licence(IdLicence)
-)ENGINE=InnoDB;
-
-#------------------------------------------------------------
-# Table: Logiciels
-#------------------------------------------------------------
-
-CREATE TABLE Logiciel(
-        IdLogiciel	      Int Auto_increment NOT NULL ,
-        NomLogiciel       Varchar (40) NOT NULL,  
-        DescriptionLogiciel Text NOT NULL,       
-	CONSTRAINT Logiciel_PK PRIMARY KEY (IdLogiciel)
+        ,CONSTRAINT acheter_Logiciel0_FK FOREIGN KEY (IdLogiciel) REFERENCES Logiciel(IdLogiciel)
 )ENGINE=InnoDB;
 
 #------------------------------------------------------------

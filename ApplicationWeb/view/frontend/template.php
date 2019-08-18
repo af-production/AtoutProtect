@@ -14,7 +14,7 @@ if(!isset($_SESSION)){
         
     <body>
     	<ul class="navBar">
-    		<li class="navBar"> <a class="navBar" href="index.php?action=listLicences"> Licences </a> </li>
+    		<li class="navBar"> <a class="navBar" href="index.php?action=listLogiciels"> Logiciels </a> </li>
     		<?php 
 	    		if(isset($_SESSION['MailUtilisateur']))
 	    		{

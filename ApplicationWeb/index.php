@@ -23,11 +23,16 @@ try {
         	{
     		 	connectUtilisateur();
         	}
-       	}elseif($_GET['action'] == 'inscription'){
+       	}elseif ($_GET['action'] == 'inscription'){
        		inscriptionUtilisateur();
-       	}elseif($_GET['action'] == 'deconnexion'){
+       	}elseif ($_GET['action'] == 'deconnexion'){
        		deconnexionUtilisateur();
-       	}
+       	}elseif ($_GET['action'] == 'collecteAchat') {
+            collecteAchat();
+        }
+        elseif ($_GET['action'] == 'insertMac') {
+            insertMac();
+        }
     }
     else {
         getLogiciels();

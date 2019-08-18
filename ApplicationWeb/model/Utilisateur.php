@@ -11,7 +11,8 @@ class Utilisateur extends Manager
         $db = $this->dbConnect();
         $req = $db->prepare('SELECT * FROM utilisateur where MailUtilisateur = :MailUtilisateur');
         $req->execute(array(':MailUtilisateur' => $MailUtilisateur));
-        return $req;
+        $result = $req->fetch(PDO::FETCH_NUM);
+        return $result;
     }
 
     function find($MailUtilisateur) 

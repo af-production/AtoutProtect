@@ -22,4 +22,12 @@ class Licence extends Manager
         return $licence;
     }
 
+    public function getIdLicence($dureeLicence)
+    {
+        $db = $this->dbConnect();
+        $licence = $db->prepare('SELECT IdLicence FROM Licence WHERE DureeValide = :dureeLicence');
+        $licence->execute(array(':dureeLicence'=>$dureeLicence));
+        $result = $licence->fetch(PDO::FETCH_NUM);
+        return $result;
+    }
 }

@@ -127,3 +127,29 @@ function deconnexionUtilisateur()
 	header('Location: index.php');
 	
 }
+
+function collecteAchat()
+{
+	session_start();
+	$achat = new \AtoutProtect\Model\Achat();
+    $tabResultat = $achat->collecterAchat($_GET['MailUtilisateur'], $_GET['NomLogiciel']);
+    require('view/frontend/resultatsql.php');
+}
+
+function insertMac()
+{
+	session_start();
+	$LicenceId = new \AtoutProtect\Model\Licence();
+    $idLicence = $LicenceId->getIdLicence($_GET['DureeLicence']);
+
+    $LogicielId = new \AtoutProtect\Model\Logiciel();
+    $idLogiciel = $LogicielId->getIdLogiciel($_GET['NomLogiciel']);
+
+
+    $UtilisateurId = new \AtoutProtect\Model\Utilisateur();
+    $idUtilisateur = $UtilisateurId->getUtilisateurByMail($_GET['MailUtilisateur']);
+
+	$achat = new \AtoutProtect\Model\Achat();
+	$tabResultat = $achat->insererMac($idUtilisateur[0], $idLicence[0], $idLogiciel[0], $_GET['MacAdress']);
+    //require('view/frontend/resultatsql.php');
+}
